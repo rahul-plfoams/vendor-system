@@ -13,5 +13,6 @@ class view
     public function inputs($type, $name, $placeholder = "no placeholder", $id = "no id", $value = "no value")
     {
         echo "<input type=$type name=$name placeholder=$placeholder id=$id value=$value>";
+        echo 'why is not workign';
     }
 }
