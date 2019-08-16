@@ -10,13 +10,8 @@ class view
         echo "</form>";
     }
 
-    public function label($id)
-    {
-        return "<label for='$id'>$id</label>";
-    }
     public function inputs($type, $name, $placeholder = "no placeholder", $id = "no id", $value = "no value")
     {
         echo "<input type=$type name=$name placeholder=$placeholder id=$id value=$value>";
     }
 }
-`
