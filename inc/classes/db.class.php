@@ -1,26 +1,22 @@
 <?php
 class db
 {
-
-    private $server = "mysql:host=localhost;dbname=vendor_db";
-    private $user = "root";
-    private $pass = "";
-    private $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
-    protected $con;
-
-    public function openConnection()
+    public static $host = "127.0.0.1";
+    public static $dbname = "test";
+    public static $username = "root";
+    public static $password = "";
+    private static function con()
     {
-        try
-        {
-            $this->con = new PDO($this->server, $this->user, $this->pass, $this->options);
-            return $this->con;
-        } catch (PDOException $e) {
-            echo "There is some problem in connection: " . $e->getMessage();
-        }
+        $pdo = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$dbname . ";charset=utf8", self::$username, self::$password);
+        $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
     }
-    public function closeConnection()
+    public static function query($query, $params = array())
     {
-        $this->con = null;
+        $stmt = self::con()->prepare($query);
+        $stmt->execute($params);
+        $data = $stmt->fetchAll();
+        return $data;
     }
-
 }
