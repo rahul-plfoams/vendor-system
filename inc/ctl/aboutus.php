@@ -4,6 +4,7 @@ class aboutus extends controller
 {
     public static function doSomething()
     {
-        print_r(self::query("SELECT * FROM users"));
+        // print_r(self::query("SELECT * FROM users"));
+        echo 'about us doing something';
     }
 }
