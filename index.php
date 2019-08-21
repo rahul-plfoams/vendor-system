@@ -1,5 +1,5 @@
 <?php
-require_once 'header.php';
-include_once 'autoload.php';
-require_once 'routes.php';
-require 'footer.php';
+include 'header.php';
+include 'autoload.php';
+include 'routes.php';
+include 'footer.php';
