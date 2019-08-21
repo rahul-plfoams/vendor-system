@@ -9,8 +9,5 @@
   </head>
   <body>
   <header>
-  <h1><center>Vendor Login System</center>
-  </h1>
-
 
   </header>

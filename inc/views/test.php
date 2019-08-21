@@ -1,1 +1,1 @@
-<h3>test page here</h3>
+<center>welcome to mvc using gulp and pug</center>
