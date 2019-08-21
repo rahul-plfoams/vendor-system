@@ -19,4 +19,19 @@ class db
         $data = $stmt->fetchAll();
         return $data;
     }
+    public static function getLine($query, $params = array())
+    {
+        $stmt = self::con()->prepare($query);
+        $stmt->execute($params);
+        $data = $stmt->fetch();
+        return $data;
+    }
+    public static function totalrow($query, $params = array())
+    {
+        $stmt = self::con()->prepare($query);
+        $stmt->execute($params);
+        $data = $stmt->fetch();
+        return $data = $stmt->rowCount();
+    }
+
 }

@@ -11,7 +11,9 @@ const pug = require('gulp-pug');
 
 function html() {
     return src('./inc/pug/*.pug')
-        .pipe(pug())
+        .pipe(pug({
+            pretty: true
+        }))
         .pipe(rename({
             extname: '.php'
         }))

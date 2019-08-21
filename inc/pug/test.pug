@@ -1,1 +1,66 @@
-center welcome to mvc using gulp and pug
+mixin input(label,name='',placeholder='',value='')
+    .field.is-horizontal
+        label.label= label
+        .control
+            input.input.is-success(type='text' name=name placeholder=placeholder value=value)
+mixin select(label,name='',value)
+    .field.is-horizontal
+        label.label= label
+        .control.select
+            select(name=name)
+                each item in value
+                    option=item
+form(method="get",action="test").section.is-centered
+    +input('Name','name','Product Name')
+    +input('Grade','grade','Product Grade')
+    +input('Quality','quality','Product Quality')
+    //- +input('Unit','unit','Product Unit')
+    div.
+        <?php
+        $result=self::query("SELECT * FROM products");
+        $rows=self::totalrow("SELECT * FROM products");
+        for($i=0;$i<$rows;$i++):?>
+    +select('Units','unit',['m','kg','sq feet'])
+    div.
+        <?php endfor;?>
+    +input('Sale Rate','sale_rate','Product Price')
+    +input('GST Rate','gst_rate','GST Rate')
+    +input('Remark','remark','Remark/Specification')
+    .field.is-grouped
+        .control
+            button.button.is-link(value="submit") Submit
+        .control
+            button.button.is-text Cancel
+            p.output.
+                <?php
+                    $test=new test();
+                    $test -> addProduct();
+                    ?>
+table.table.is-bordered.is-fullwidth
+    thead
+        tr
+            - const tablehead=['ID','Name','Grade','Quality','Unit','Sale Rate','GST Rate','Remark'];
+                each item in tablehead
+                    td= item
+    tbody.
+        <?php 
+        $result=self::query("SELECT * FROM products");
+        $rows=self::totalrow("SELECT * FROM products");
+        for($i=0;$i<$rows;$i++){
+            $j=$result[$i];
+            echo "
+            <tr>
+            <td>".$j['id']."</td>
+            <td>".$j['name']."</td>
+            <td>".$j['grade']."</td>
+            <td>".$j['quality']."</td>
+            <td>".$j['unit']."</td>
+            <td>".$j['sale_rate']."</td>
+            <td>".$j['gst_rate']."</td>
+            <td>".$j['remark']."</td>
+            </tr>
+            ";
+        }
+        ?>
+        
+
