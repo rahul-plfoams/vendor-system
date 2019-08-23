@@ -18,12 +18,6 @@
       <input class="input is-success" type="text" name="quality" placeholder="Product Quality" value=""/>
     </div>
   </div>
-  <div>
-    <?php
-    $result=self::query("SELECT * FROM products");
-    $rows=self::totalrow("SELECT * FROM products");
-    for($i=0;$i<$rows;$i++):?>
-  </div>
   <div class="field is-horizontal">
     <label class="label">Units</label>
     <div class="control select">
@@ -34,7 +28,6 @@
       </select>
     </div>
   </div>
-  <div><?php endfor;?></div>
   <div class="field is-horizontal">
     <label class="label">Sale Rate</label>
     <div class="control">
@@ -62,7 +55,6 @@
       <p class="output">
         <?php
             $test=new test();
-            $test -> addProduct();
             ?>
       </p>
     </div>
@@ -81,25 +73,5 @@
       <td>Remark</td>
     </tr>
   </thead>
-  <tbody>
-    <?php 
-    $result=self::query("SELECT * FROM products");
-    $rows=self::totalrow("SELECT * FROM products");
-    for($i=0;$i<$rows;$i++){
-        $j=$result[$i];
-        echo "
-        <tr>
-        <td>".$j['id']."</td>
-        <td>".$j['name']."</td>
-        <td>".$j['grade']."</td>
-        <td>".$j['quality']."</td>
-        <td>".$j['unit']."</td>
-        <td>".$j['sale_rate']."</td>
-        <td>".$j['gst_rate']."</td>
-        <td>".$j['remark']."</td>
-        </tr>
-        ";
-    }
-    ?>
-  </tbody>
+  <tbody></tbody>
 </table>

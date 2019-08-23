@@ -14,15 +14,7 @@ form(method="get",action="test").section.is-centered
     +input('Name','name','Product Name')
     +input('Grade','grade','Product Grade')
     +input('Quality','quality','Product Quality')
-    //- +input('Unit','unit','Product Unit')
-    div.
-        <?php
-        $result=self::query("SELECT * FROM products");
-        $rows=self::totalrow("SELECT * FROM products");
-        for($i=0;$i<$rows;$i++):?>
     +select('Units','unit',['m','kg','sq feet'])
-    div.
-        <?php endfor;?>
     +input('Sale Rate','sale_rate','Product Price')
     +input('GST Rate','gst_rate','GST Rate')
     +input('Remark','remark','Remark/Specification')
@@ -34,7 +26,6 @@ form(method="get",action="test").section.is-centered
             p.output.
                 <?php
                     $test=new test();
-                    $test -> addProduct();
                     ?>
 table.table.is-bordered.is-fullwidth
     thead
@@ -43,24 +34,6 @@ table.table.is-bordered.is-fullwidth
                 each item in tablehead
                     td= item
     tbody.
-        <?php 
-        $result=self::query("SELECT * FROM products");
-        $rows=self::totalrow("SELECT * FROM products");
-        for($i=0;$i<$rows;$i++){
-            $j=$result[$i];
-            echo "
-            <tr>
-            <td>".$j['id']."</td>
-            <td>".$j['name']."</td>
-            <td>".$j['grade']."</td>
-            <td>".$j['quality']."</td>
-            <td>".$j['unit']."</td>
-            <td>".$j['sale_rate']."</td>
-            <td>".$j['gst_rate']."</td>
-            <td>".$j['remark']."</td>
-            </tr>
-            ";
-        }
-        ?>
+        
         
 

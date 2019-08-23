@@ -1,10 +1,14 @@
 <?php
 class controller extends db
 {
+    protected function doSomething()
+    {
 
-    public static function CreateView($viewName)
+    }
+    public function CreateView($viewName)
     {
         require_once "./inc/views/$viewName.php";
-        static::doSomething();
+        $this->doSomething();
     }
+
 }
