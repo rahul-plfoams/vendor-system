@@ -18,12 +18,6 @@
       <input class="input is-success" type="text" name="quality" placeholder="Product Quality" value=""/>
     </div>
   </div>
-  <div>
-    <?php
-    $result=self::query("SELECT * FROM products");
-    $rows=self::totalrow("SELECT * FROM products");
-    for($i=0;$i<$rows;$i++):?>
-  </div>
   <div class="field is-horizontal">
     <label class="label">Units</label>
     <div class="control select">
@@ -34,7 +28,6 @@
       </select>
     </div>
   </div>
-  <div><?php endfor;?></div>
   <div class="field is-horizontal">
     <label class="label">Sale Rate</label>
     <div class="control">
@@ -97,9 +90,11 @@
         <td>".$j['sale_rate']."</td>
         <td>".$j['gst_rate']."</td>
         <td>".$j['remark']."</td>
+        <td><a href="">edit</a></td>
         </tr>
         ";
     }
+    
     ?>
   </tbody>
 </table>

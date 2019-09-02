@@ -14,15 +14,7 @@ form(method="get",action="test").section.is-centered
     +input('Name','name','Product Name')
     +input('Grade','grade','Product Grade')
     +input('Quality','quality','Product Quality')
-    //- +input('Unit','unit','Product Unit')
-    div.
-        <?php
-        $result=self::query("SELECT * FROM products");
-        $rows=self::totalrow("SELECT * FROM products");
-        for($i=0;$i<$rows;$i++):?>
     +select('Units','unit',['m','kg','sq feet'])
-    div.
-        <?php endfor;?>
     +input('Sale Rate','sale_rate','Product Price')
     +input('GST Rate','gst_rate','GST Rate')
     +input('Remark','remark','Remark/Specification')
@@ -58,9 +50,11 @@ table.table.is-bordered.is-fullwidth
             <td>".$j['sale_rate']."</td>
             <td>".$j['gst_rate']."</td>
             <td>".$j['remark']."</td>
+            <td><a href="">edit</a></td>
             </tr>
             ";
         }
+
         ?>
         
 
