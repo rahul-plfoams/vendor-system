@@ -26,7 +26,6 @@ form(method="get",action="test").section.is-centered
             p.output.
                 <?php
                     $test=new test();
-                    $test -> addProduct();
                     ?>
 table.table.is-bordered.is-fullwidth
     thead
@@ -35,6 +34,7 @@ table.table.is-bordered.is-fullwidth
                 each item in tablehead
                     td= item
     tbody.
+<<<<<<< HEAD
         <?php 
         $result=self::query("SELECT * FROM products");
         $rows=self::totalrow("SELECT * FROM products");
@@ -56,5 +56,8 @@ table.table.is-bordered.is-fullwidth
         }
 
         ?>
+=======
+        
+>>>>>>> 27b763b52706cbea0f4d19fb1ecdddfe07f24b9f
         
 

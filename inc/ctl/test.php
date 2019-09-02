@@ -11,21 +11,22 @@ class test extends controller
 
     public function __construct()
     {
-
+        $this->addProduct();
     }
-    public static function doSomething()
+    public function doSomething()
     {
 
     }
     public function addProduct()
     {
-        $this->name = $_GET['name'];
-        $this->grade = $_GET['grade'];
-        $this->quality = $_GET['quality'];
-        $this->unit = $_GET['unit'];
-        $this->sale_rate = $_GET['sale_rate'];
-        $this->gst_rate = $_GET['gst_rate'];
-        $this->remark = $_GET['remark'];
+
+        $this->name = (isset($_GET['name']) ? $_GET['name'] : '');
+        $this->grade = (isset($_GET['grade']) ? $_GET['grade'] : '');
+        $this->quality = (isset($_GET['quality']) ? $_GET['quality'] : '');
+        $this->unit = (isset($_GET['unit']) ? $_GET['unit'] : '');
+        $this->sale_rate = (isset($_GET['sale_rate']) ? $_GET['sale_rate'] : '');
+        $this->gst_rate = (isset($_GET['gst_rate']) ? $_GET['gst_rate'] : '');
+        $this->remark = (isset($_GET['remark']) ? $_GET['remark'] : '');
         $sql = "INSERT INTO products (name,grade,quality,unit,sale_rate,gst_rate,remark) VALUES ('$this->name','$this->grade','$this->quality','$this->unit',$this->sale_rate,$this->gst_rate,'$this->remark')";
         self::query($sql);
     }

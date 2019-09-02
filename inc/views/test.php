@@ -55,7 +55,6 @@
       <p class="output">
         <?php
             $test=new test();
-            $test -> addProduct();
             ?>
       </p>
     </div>
@@ -74,6 +73,7 @@
       <td>Remark</td>
     </tr>
   </thead>
+<<<<<<< HEAD
   <tbody>
     <?php 
     $result=self::query("SELECT * FROM products");
@@ -97,4 +97,7 @@
     
     ?>
   </tbody>
+=======
+  <tbody></tbody>
+>>>>>>> 27b763b52706cbea0f4d19fb1ecdddfe07f24b9f
 </table>

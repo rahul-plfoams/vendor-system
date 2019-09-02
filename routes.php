@@ -5,6 +5,15 @@ route::set('index.php', function () {
 route::set('log-in', function () {
     login::CreateView('login');
 });
+route::set('admin', function () {
+    admin::CreateView('admin');
+});
+route::set('checklogin', function () {
+    checklogin::CreateView('checklogin');
+});
+route::set('vendor', function () {
+    vendor::CreateView('vendor');
+});
 route::set('test', function () {
     test::CreateView('test');
 });
